@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:expense_tracker/models/expense.dart';
 
@@ -108,7 +109,7 @@ class _NewExpenseState extends State<NewExpense> {
                       : formatter.format(_selectedDate!)),
                   IconButton(
                       onPressed: _presentDatePicker,
-                      icon: const Icon(Icons.calendar_month)),
+                      icon: const Icon(Icons.calendar_month, color: Color.fromARGB(255, 68, 89, 123))),
                 ],
               ))
             ],
