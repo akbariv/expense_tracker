@@ -82,6 +82,7 @@ class _NewExpenseState extends State<NewExpense> {
           TextField(
             controller: _titleController,
             maxLength: 50,
+            style: const TextStyle(color: Color.fromARGB(255, 68, 89, 123)),
             decoration: const InputDecoration(
               label: Text('Title'),
             ),
@@ -90,11 +91,14 @@ class _NewExpenseState extends State<NewExpense> {
             children: [
               Expanded(
                 child: TextField(
+                  style:
+                      const TextStyle(color: Color.fromARGB(255, 68, 89, 123)),
                   controller: _amountController,
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
                     prefixText: '\$ ',
                     label: Text('Amount'),
+                    prefixStyle: TextStyle(color: Color.fromARGB(255, 68, 89, 123))
                   ),
                 ),
               ),
@@ -104,12 +108,16 @@ class _NewExpenseState extends State<NewExpense> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(_selectedDate == null
-                      ? 'No Date Chosen'
-                      : formatter.format(_selectedDate!)),
+                  Text(
+                      _selectedDate == null
+                          ? 'No Date Chosen'
+                          : formatter.format(_selectedDate!),
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 68, 89, 123))),
                   IconButton(
                       onPressed: _presentDatePicker,
-                      icon: const Icon(Icons.calendar_month, color: Color.fromARGB(255, 68, 89, 123))),
+                      icon: const Icon(Icons.calendar_month,
+                          color: Color.fromARGB(255, 68, 89, 123))),
                 ],
               ))
             ],
@@ -119,12 +127,15 @@ class _NewExpenseState extends State<NewExpense> {
             children: [
               DropdownButton(
                   value: _selectedCategory,
+                  dropdownColor: const Color.fromARGB(255, 235, 235, 235),
                   items: Category.values
                       .map(
                         (category) => DropdownMenuItem(
                           value: category,
                           child: Text(
                             category.name.toUpperCase(),
+                            style: const TextStyle(
+                                color: Color.fromARGB(255, 68, 89, 123)),
                           ),
                         ),
                       )
